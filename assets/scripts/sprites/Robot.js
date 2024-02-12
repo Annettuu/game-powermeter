@@ -11,12 +11,6 @@ class Robot extends Phaser.GameObjects.Sprite {
     }
 
     setTextureElement(level) {
-        if (level == 8) {
-            this.setTexture(this.robot2);
-        } else if (level < 8) {
-            this.setTexture(this.robot1);
-        } else {
-            this.setTexture(this.robot);
-        }
+        this.setTexture(level == 8 ? this.robot2 : level < 8 ? this.robot1 : this.robot);
     }
 }

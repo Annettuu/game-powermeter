@@ -137,9 +137,9 @@ class GameScene extends Phaser.Scene {
     }
 
     deleteText() {
-        if (this.textObject) {
-            this.textObject.destroy();
-        }
+        if (this.text) this.text.destroy();
+
+        if (this.additionalText) this.additionalText.destroy()
     }
 
     createText(arg) {
@@ -165,10 +165,19 @@ class GameScene extends Phaser.Scene {
             }
         }
     
-        this.textObject = this.add.text(170, 540, textToShow, {
+        this.text = this.add.text(170, 530, textToShow, {
             font: '700 14px Roboto',
             align: 'center',
             weight: 700,
         }).setOrigin(0.5);
+
+        if (this.level === 8 && textToShow === textMap.success) {
+            this.additionalText = this.add.text(170, 555, 'Рубин!', {
+                font: '700 14px Roboto',
+                align: 'center',
+                weight: 700,
+                fill: 'red'
+            }).setOrigin(0.5);
+        }
     }
 }

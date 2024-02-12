@@ -6,7 +6,7 @@ class Powermeter extends Phaser.GameObjects.Sprite {
         this.scene.add.existing(this);
         this.setDepth(1);
 
-        this.startPosition = measure;
+        this.imgDefault = measure;
         this.ruby = ruby;
         this.rubyActive = rubyActive;
 
@@ -29,14 +29,14 @@ class Powermeter extends Phaser.GameObjects.Sprite {
     } 
     
     setDefault() {
-        this.setTexture(this.startPosition);
+        this.setTexture(this.imgDefault);
     }
 
     setRuby(img = this.ruby) {
-        if (this.overlayImage) this.overlayImage.destroy();
+        if (this.rubyImg) this.rubyImg.destroy();
 
-        this.overlayImage = this.scene.add.image(120, 7, img);
-        this.overlayImage.setOrigin(0, 0);
-        this.overlayImage.setDepth(2);
+        this.rubyImg = this.scene.add.image(120, 7, img);
+        this.rubyImg.setOrigin(0, 0);
+        this.rubyImg.setDepth(2);
     }
 }

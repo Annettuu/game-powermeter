@@ -34,7 +34,6 @@ class Scale extends Phaser.GameObjects.Sprite {
             const minTick = 2
             return Math.max(...[minTick, random])
         }
-        const medium = []
         const scale = () => {
             if (this.value === maxValue) {
                 vector = 'down'
@@ -51,11 +50,6 @@ class Scale extends Phaser.GameObjects.Sprite {
                 tick++
                 if (this.intervalActive) {
                     this.setPercent(this.value)
-                    medium.push(this.value)
-                    const m = medium.reduce((a, i) => {
-                        a += i
-                        return a
-                    }, 0) / medium.length
                     scale()
                 }
             }, 100)
